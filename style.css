@@ -1,0 +1,322 @@
+/* Some varibles */
+/*Front-end Style Guide
+## Layout
+*/
+/*Colors*/
+/*Primary*/
+/*
+## Typography
+### Body Copy
+*/
+/*### Font*/
+/* General reset */
+h1,
+h3,
+p, ul li, ul, body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* General content-wraper class to extends */
+body {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* General mixin */
+/* Typography class */
+main .about .about-desc, .hero .hero-desc .hero-desc-detail, .hero nav a,
+.hero nav .nav-logo {
+  font-family: "League Spartan", Verdana, Geneva, Tahoma, sans-serif;
+}
+
+main .about .about-desc .about-desc-par {
+  font-size: 12px;
+  color: hsl(0deg, 0%, 63%);
+}
+
+/* Body area */
+body {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: normal;
+  align-items: normal;
+  min-height: 100vh;
+}
+body header {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: normal;
+  align-items: normal;
+}
+body main {
+  flex: 1;
+}
+
+/* Header area */
+/** Hero section **/
+.hero {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: normal;
+  align-items: normal;
+  /*** Hero image ****/
+  /* navigation */
+  /* The items */
+  /*--------------------------------*/
+  /* Hero description section */
+}
+.hero .hero-img {
+  flex: 1 1 60%;
+  background-image: url("./images/desktop-image-hero-1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 45px;
+}
+.hero nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: normal;
+  align-items: center;
+  gap: 70px;
+}
+.hero nav ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: normal;
+  align-items: normal;
+  gap: 20px;
+}
+.hero nav ul li {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: normal;
+  align-items: center;
+  /* The border down when hover */
+  position: relative;
+  padding: 7px;
+}
+.hero nav ul li:hover::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 35%;
+  border-bottom: 2px solid hsl(0deg, 0%, 100%);
+  width: 30%;
+}
+.hero nav a,
+.hero nav .nav-logo {
+  color: hsl(0deg, 0%, 100%);
+}
+.hero nav .nav-logo {
+  font-size: 2.3em;
+}
+.hero .hero-desc {
+  flex: 1 1 40%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: normal;
+}
+.hero .hero-desc .hero-desc-detail {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: normal;
+  gap: 25px;
+  padding: 6vw;
+  font-weight: 700;
+}
+.hero .hero-desc .hero-desc-detail .hero-desc-tittle {
+  color: hsl(0deg, 0%, 0%);
+  font-size: 2.8vw;
+}
+.hero .hero-desc .hero-desc-detail .hero-desc-intro {
+  color: hsl(0deg, 0%, 63%);
+  font-size: 12px;
+  line-height: 1.25;
+  word-spacing: 2px;
+}
+.hero .hero-desc .hero-desc-detail .hero-desc-shop-container a {
+  letter-spacing: 10px;
+  color: hsl(0deg, 0%, 27%);
+}
+.hero .hero-desc .hero-desc-detail .hero-desc-shop-container a:hover {
+  color: hsl(0deg, 0%, 63%);
+}
+.hero .hero-desc .hero-desc-detail .hero-desc-shop-container a:hover img {
+  opacity: 0.5;
+}
+.hero .hero-desc #picture-carousel-buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: normal;
+  align-items: normal;
+}
+.hero .hero-desc #picture-carousel-buttons a {
+  border: none;
+  background-color: hsl(0deg, 0%, 0%);
+  padding: 25px;
+  color: hsl(0deg, 0%, 63%);
+  font-size: 1.5em;
+}
+.hero .hero-desc #picture-carousel-buttons a:hover {
+  background-color: hsl(0deg, 0%, 27%);
+}
+
+/* The main area */
+main .about {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: normal;
+  align-items: normal;
+}
+main .about .img-light,
+main .about .img-dark {
+  flex: 1;
+}
+main .about .about-desc {
+  flex: 1.5;
+}
+main .about .about-desc {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: normal;
+  gap: 20px;
+  padding: 5vh 3.5vw;
+}
+main .about .about-desc .about-desc-tittle {
+  letter-spacing: 3.5px;
+  font-weight: 700;
+  font-size: 1.3em;
+  color: hsl(0deg, 0%, 0%);
+}
+main .about .about-desc .about-desc-par {
+  font-size: 12px;
+  font-weight: 700;
+  color: hsl(0deg, 0%, 63%);
+  line-height: 1.25;
+}
+
+/* Mobile area */
+@media (max-width: 1000px) {
+  /* head area */
+  header .hero {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: normal;
+    align-items: normal;
+  }
+  header .hero .hero-img {
+    flex: 0 1 auto;
+    background-size: cover;
+    height: 60vh;
+  }
+  header .hero .hero-desc {
+    flex: 0 1 auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: normal;
+    align-items: normal;
+    position: relative;
+  }
+  header .hero .hero-desc .hero-desc-detail {
+    align-self: center;
+    width: 65%;
+  }
+  header .hero .hero-desc .hero-desc-detail .hero-desc-tittle {
+    font-size: 1.5em;
+  }
+  header .hero .hero-desc .hero-desc-detail .hero-desc-intro {
+    line-height: 1.5;
+  }
+  header .hero .hero-desc #picture-carousel-buttons {
+    position: absolute;
+    top: -3.9em;
+    right: 0;
+  }
+  header .hero .hero-desc #picture-carousel-buttons a {
+    padding: 20px;
+    font-size: 1.1em;
+  }
+  /* main area */
+}
+@media (max-width: 1000px) and (max-width: 700px) {
+  header .hero .hero-desc .hero-desc-detail {
+    width: 85%;
+  }
+}
+@media (max-width: 1000px) and (max-width: 375px) {
+  header .hero .hero-img {
+    background-image: url("./images/mobile-image-hero-1.jpg");
+    height: 375px;
+    border: 1px solid #000;
+  }
+}
+@media (max-width: 1000px) {
+  main .about {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: normal;
+    align-items: center;
+  }
+  main .about .img-light,
+main .about .img-dark {
+    flex: 1;
+  }
+  main .about .about-desc {
+    flex: 1;
+  }
+  main .about .about-desc {
+    gap: 20px;
+    width: 65%;
+  }
+  main .about .about-desc .about-desc-tittle {
+    font-size: 1.1em;
+    text-align: center;
+  }
+  main .about .about-desc .about-desc-par {
+    text-align: center;
+    line-height: 1.5;
+  }
+}
+@media (max-width: 1000px) and (max-width: 700px) {
+  main .about .about-desc {
+    width: 85%;
+  }
+  main .about .about-desc .about-desc-tittle {
+    font-size: 1em;
+    text-align: center;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,369 @@
+/* Some varibles */
+/*Front-end Style Guide
+## Layout
+*/
+$mobile-width: 375px;
+$desktop-width: 1440px;
+
+/*Colors*/
+/*Primary*/
+
+$color-pri-dark-gray: hsl(0, 0%, 63%);
+$color-pri-black: hsl(0, 0%, 0%);
+$color-pri-white: hsl(0, 0%, 100%);
+$color-pri-very-dark-gray: hsl(0, 0%, 27%);
+
+/*
+## Typography
+### Body Copy
+*/
+
+$font-size: 12px;
+
+/*### Font*/
+$font-family-pri: 'League Spartan', ;
+$font-family-fallback: Verdana, Geneva, Tahoma, sans-serif;
+$font-weight1: 500;
+$font-weight2: 600;
+$font-weight3: 700;
+
+/* General reset */
+%reset-margin-padding {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    @extend %reset-margin-padding;
+}
+
+ul {
+    @extend %reset-margin-padding;
+    list-style-type: none;
+}
+
+ul li {
+    @extend %reset-margin-padding;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1,
+h3,
+p {
+    @extend %reset-margin-padding;
+}
+
+/* General content-wraper class to extends */
+%content-wraper {
+    max-width: $desktop-width;
+    margin: 0 auto;
+}
+
+/* General mixin */
+@mixin flex($display: flex, $direction: row, $wrap: nowrap, $justify: normal, $align: normal) {
+    display: $display;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin flex_item_reset(){
+    flex: 0 1 auto;
+}
+
+@mixin grid($display: grid, $column: none, $row: none) {
+    display: $display;
+    grid-template-columns: $column;
+    grid-template-rows: $row;
+}
+
+/* Typography class */
+%typography {
+    font-family: $font-family-pri, $font-family-fallback;
+}
+
+%typography-par {
+    font-size: $font-size;
+    color: $color-pri-dark-gray;
+}
+
+/* Body area */
+body {
+    @include flex($direction: column); //To header and main
+    @extend %content-wraper;
+    min-height: 100vh;
+
+    header {
+        flex: 2;
+        @include flex($direction: column);
+    }
+
+    main {
+        flex: 1;
+    }
+}
+
+/* Header area */
+/** Hero section **/
+.hero {
+    flex: 1;
+    @include flex();
+
+    /*** Hero image ****/
+    .hero-img {
+        flex: 1 1 60%;
+        background-image: url('./images/desktop-image-hero-1.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 45px;
+    }
+
+    /* navigation */
+    nav {
+        @include flex($align: center);
+        gap: 70px;
+    }
+
+    /* The items */
+    nav ul {
+        @include flex();
+        gap: 20px;
+
+        li {
+            @include flex($display: flex, $align: center);
+
+            /* The border down when hover */
+            position: relative; 
+            padding: 7px;
+        }
+
+        li:hover::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 35%;
+            border-bottom: 2px solid $color-pri-white;
+            width: 30%;
+        }
+    }
+
+    nav a,
+    nav .nav-logo {
+        @extend %typography;
+        color: $color-pri-white;
+    }
+
+    nav .nav-logo {
+        font-size: 2.3em;
+    }
+
+    /*--------------------------------*/
+
+    /* Hero description section */
+    .hero-desc {
+        flex: 1 1 40%;
+        @include flex($direction: column, $justify: space-between);
+
+        .hero-desc-detail {
+            @include flex($direction: column, $justify: center);
+            gap: 25px;
+            padding: 6vw;
+
+
+            @extend %typography;
+            font-weight: $font-weight3;
+
+            .hero-desc-tittle {
+                color: $color-pri-black;
+                font-size: 2.8vw;
+            }
+
+            .hero-desc-intro {
+                color: $color-pri-dark-gray;
+                font-size: $font-size;
+                line-height: 1.25;
+                word-spacing: 2px;
+            }
+
+            .hero-desc-shop-container {
+                a {
+                    letter-spacing: 10px;
+                    color: $color-pri-very-dark-gray;
+                }
+                a:hover {
+                    color: $color-pri-dark-gray;
+                    img {
+                        opacity: 0.5;
+                    }
+                }
+            }
+        }
+
+        #picture-carousel-buttons {
+            @include flex();
+
+            a {
+                border: none;
+                background-color: $color-pri-black;
+                padding: 25px;
+
+                color: $color-pri-dark-gray;
+                font-size: 1.5em;
+            }
+            
+            a:hover{
+                background-color: $color-pri-very-dark-gray;
+            }
+        }
+    }
+}
+
+/* The main area */
+main {
+    .about {
+        @include flex();
+
+        .img-light,
+        .img-dark {
+            flex: 1;
+        }
+
+        .about-desc{
+            flex: 1.5;
+        }
+
+        .about-desc {
+            @extend %typography;
+            @include flex($direction: column, $justify: center);
+            gap: 20px;
+            padding: 5vh 3.5vw;
+
+            .about-desc-tittle {
+                letter-spacing: 3.5px;
+                font-weight: $font-weight3;
+                font-size: 1.3em;
+                color: $color-pri-black;
+            }
+
+            .about-desc-par {
+                @extend %typography-par;
+                font-size: $font-size;
+                font-weight: $font-weight3;
+                color: $color-pri-dark-gray;
+                line-height: 1.25;
+            }
+        }
+    }
+}
+
+/* Mobile area */
+@media (max-width: 1000px) {
+    /* head area */
+    header {
+        .hero {
+            @include flex($direction: column);
+
+            .hero-img {
+                @include flex_item_reset();
+                background-size: cover;
+                height: 60vh;
+            }
+
+            .hero-desc {
+                @include flex_item_reset();
+                @include flex($direction: column);
+                position: relative;
+
+                .hero-desc-detail{
+                    align-self: center;
+                    width: 65%;
+
+                    .hero-desc-tittle{
+                        font-size: 1.5em;
+                    }
+
+                    .hero-desc-intro {
+                        line-height: 1.5;
+                    }
+ 
+
+                }
+
+                #picture-carousel-buttons {
+                    position: absolute;
+                    top: -3.9em;
+                    right: 0;
+
+                    a {
+                        padding: 20px;
+                        font-size: 1.1em;
+                    }
+                }
+            }
+
+            @media (max-width: 700px){
+                .hero-desc{
+                    .hero-desc-detail{
+                        width: 85%;
+                   }
+                }
+            }
+
+            //Small size screen
+            @media (max-width: 375px){
+                .hero-img {
+                    background-image: url('./images/mobile-image-hero-1.jpg');
+                    height: 375px;
+                    border: 1px solid #000;
+                }
+           }
+        }
+    }
+
+    /* main area */
+    main {
+        .about {
+            @include flex($direction: column, $align: center);
+           .img-light,
+           .img-dark {
+               flex: 1;
+           }
+
+           .about-desc{
+               flex: 1;
+           }
+
+           .about-desc {
+               gap: 20px;
+               width: 65%;
+
+               .about-desc-tittle {
+                   font-size: 1.1em;
+                   text-align: center;
+               }
+
+               .about-desc-par {
+                    text-align: center;
+                    line-height:  1.5;
+               }
+           }
+           @media (max-width: 700px){
+               .about-desc{
+                    width: 85%;
+                   .about-desc-tittle {
+                        font-size: 1em;
+                        text-align: center;
+                    }
+                  }
+               }
+           }
+     }
+}
