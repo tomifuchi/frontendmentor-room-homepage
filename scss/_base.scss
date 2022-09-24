@@ -1,0 +1,96 @@
+/* Some varibles */
+/*Front-end Style Guide
+## Layout
+*/
+$mobile-width: 375px;
+$desktop-width: 1440px;
+
+/*Colors*/
+/*Primary*/
+
+$color-pri-dark-gray: hsl(0, 0%, 63%);
+$color-pri-black: hsl(0, 0%, 0%);
+$color-pri-white: hsl(0, 0%, 100%);
+$color-pri-very-dark-gray: hsl(0, 0%, 27%);
+
+/*
+## Typography
+### Body Copy
+*/
+
+$font-size: 12px;
+
+/*### Font*/
+$font-family-pri: 'League Spartan', ;
+$font-family-fallback: Verdana, Geneva, Tahoma, sans-serif;
+$font-weight1: 500;
+$font-weight2: 600;
+$font-weight3: 700;
+
+/* General reset */
+%reset-margin-padding {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    @extend %reset-margin-padding;
+}
+
+ul {
+    @extend %reset-margin-padding;
+    list-style-type: none;
+}
+
+ul li {
+    @extend %reset-margin-padding;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1,
+h3,
+p {
+    @extend %reset-margin-padding;
+}
+
+/* General content-wraper class to extends */
+%content-wraper {
+    max-width: $desktop-width;
+    margin: 0 auto;
+}
+
+/* General mixin */
+@mixin flex($display: flex, $direction: row, $wrap: nowrap, $justify: normal, $align: normal) {
+    display: $display;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin flex_item_reset(){
+    flex: 0 1 auto;
+}
+
+@mixin grid($display: grid, $column: none, $row: none) {
+    display: $display;
+    grid-template-columns: $column;
+    grid-template-rows: $row;
+}
+
+/* Typography namespace */
+%typography {
+    font-family: $font-family-pri, $font-family-fallback;
+}
+
+%typography-par {
+    font-size: $font-size;
+    color: $color-pri-dark-gray;
+}

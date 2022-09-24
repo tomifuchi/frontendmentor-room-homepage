@@ -36,7 +36,7 @@ body {
 }
 
 /* General mixin */
-/* Typography class */
+/* Typography namespace */
 main .about .about-desc, .hero .hero-desc .hero-desc-detail, .hero nav a,
 .hero nav .nav-logo {
   font-family: "League Spartan", Verdana, Geneva, Tahoma, sans-serif;
@@ -97,7 +97,7 @@ body main {
   flex-wrap: nowrap;
   justify-content: normal;
   align-items: center;
-  gap: 70px;
+  gap: 40px;
 }
 .hero nav ul {
   display: flex;
@@ -113,7 +113,7 @@ body main {
   flex-wrap: nowrap;
   justify-content: normal;
   align-items: center;
-  /* The border down when hover */
+  /* The border when hover */
   position: relative;
   padding: 7px;
 }
@@ -271,6 +271,12 @@ main .about .about-desc .about-desc-par {
   }
   /* main area */
 }
+@media (max-width: 1000px) and (max-width: 375px) {
+  header .hero .hero-img {
+    background-image: url("./images/mobile-image-hero-1.jpg");
+    height: 375px;
+  }
+}
 @media (max-width: 1000px) and (max-width: 700px) {
   header .hero .hero-img {
     padding: 35px 0;
@@ -311,10 +317,9 @@ main .about .about-desc .about-desc-par {
     position: absolute;
     width: 100%;
     height: 400%;
-    top: -3.3vh;
     transition: 0.3s;
-    transform: translateY(-110%);
     z-index: 2;
+    transform: translateY(-140%);
     cursor: pointer;
     background-color: hsl(0deg, 0%, 100%);
   }
@@ -326,8 +331,8 @@ main .about .about-desc .about-desc-par {
     height: 22px;
     width: 32px;
     display: flex;
-    top: 7vh;
-    left: 3.5vw;
+    top: 5.2vh;
+    left: 5.5vw;
     flex-direction: column;
     justify-content: space-between;
   }
@@ -350,7 +355,7 @@ main .about .about-desc .about-desc-par {
   }
   header .hero nav ul.active {
     transition: 0.3s;
-    transform: translateY(-10%);
+    transform: translateY(-26%);
   }
 }
 @media (max-width: 1000px) and (max-width: 700px) and (max-width: 350px) {
@@ -364,7 +369,7 @@ main .about .about-desc .about-desc-par {
     transform: translateY(-110%);
   }
   header .hero nav ul.active {
-    transform: translateY(-5%);
+    transform: translateY(-3.25%);
   }
 }
 @media (max-width: 1000px) {
@@ -383,7 +388,7 @@ main .about .about-desc .about-desc-par {
   }
   header .hero .hero-desc .hero-desc-detail .hero-desc-tittle {
     text-align: center;
-    font-size: 1.5em;
+    font-size: 1.6em;
   }
   header .hero .hero-desc .hero-desc-detail .hero-desc-intro {
     line-height: 1.5;
@@ -404,12 +409,6 @@ main .about .about-desc .about-desc-par {
 @media (max-width: 1000px) and (max-width: 700px) {
   header .hero .hero-desc .hero-desc-detail {
     width: 85%;
-  }
-}
-@media (max-width: 1000px) and (max-width: 375px) {
-  header .hero .hero-img {
-    background-image: url("./images/mobile-image-hero-1.jpg");
-    height: 375px;
   }
 }
 @media (max-width: 1000px) {

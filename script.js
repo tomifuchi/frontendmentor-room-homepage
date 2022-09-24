@@ -6,6 +6,7 @@ mb_button.addEventListener('click', () => {
     //The links
     const nav_links = document.getElementById('nav-links');
     nav_links.classList.toggle('active');
+    console.log(nav_links)
     //Dark overlay and tune opacity  & lock the body
     overlay.classList.toggle('active');
     document.body.classList.toggle('active-overlay');

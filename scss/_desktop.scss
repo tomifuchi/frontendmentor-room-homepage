@@ -1,0 +1,193 @@
+/* Body area */
+body {
+    @include flex($direction: column); //To header and main
+    @extend %content-wraper;
+    min-height: 100vh;
+
+    header {
+        flex: 2;
+        @include flex($direction: column);
+    }
+
+    main {
+        flex: 1;
+    }
+}
+
+/* Header area */
+/** Hero section **/
+.hero {
+    flex: 1;
+    @include flex();
+
+    /*** Hero image ****/
+    .hero-img {
+        flex: 1 1 60%;
+        background-image: url('./images/desktop-image-hero-1.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 45px;
+    }
+
+    /* navigation */
+    nav {
+        @include flex($align: center);
+        gap: 40px;
+    }
+
+    /* The items */
+    nav ul {
+        @include flex();
+        gap: 20px;
+
+        li {
+            @include flex($display: flex, $align: center);
+
+            /* The border when hover */
+            position: relative; 
+            padding: 7px;
+        }
+
+        li:hover::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 35%;
+            border-bottom: 2px solid $color-pri-white;
+            width: 30%;
+        }
+    }
+
+    nav a,
+    nav .nav-logo {
+        @extend %typography;
+        color: $color-pri-white;
+    }
+
+    nav .nav-logo {
+        font-size: 2.3em;
+    }
+
+    /* The fucking hamburger */
+    nav {
+        position: relative;
+
+        #mb-button {
+            position: absolute;
+            height: 22px;
+            width: 32px;
+            top: 0.5em;
+            left: 1.5em;
+            display: none;
+
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+
+        .mb-button-bar {
+            height: 3px;
+            width: 100%;
+            background-color: $color-pri-white;
+        }
+    }
+
+    /*--------------------------------*/
+
+    /* Hero description section */
+    .hero-desc {
+        flex: 1 1 40%;
+        @include flex($direction: column, $justify: space-between);
+
+        .hero-desc-detail {
+            @include flex($direction: column, $justify: center);
+            gap: 25px;
+            padding: 6vw;
+
+
+            //Font work
+            @extend %typography;
+            font-weight: $font-weight3;
+
+            .hero-desc-tittle {
+                color: $color-pri-black;
+                font-size: 2.8vw;
+            }
+
+            .hero-desc-intro {
+                color: $color-pri-dark-gray;
+                font-size: $font-size;
+                line-height: 1.25;
+                word-spacing: 2px;
+            }
+
+            .hero-desc-shop-container {
+                a {
+                    letter-spacing: 10px;
+                    color: $color-pri-very-dark-gray;
+                }
+                a:hover {
+                    color: $color-pri-dark-gray;
+                    img {
+                        opacity: 0.5;
+                    }
+                }
+            }
+        }
+
+        #picture-carousel-buttons {
+            @include flex();
+
+            a {
+                border: none;
+                background-color: $color-pri-black;
+                padding: 25px;
+
+                color: $color-pri-dark-gray;
+                font-size: 1.5em;
+            }
+            
+            a:hover{
+                background-color: $color-pri-very-dark-gray;
+            }
+        }
+    }
+}
+
+/* The main area */
+main {
+    .about {
+        @include flex();
+
+        .img-light,
+        .img-dark {
+            flex: 1;
+        }
+
+        .about-desc{
+            flex: 1.5;
+        }
+
+        .about-desc {
+            @extend %typography;
+            @include flex($direction: column, $justify: center);
+            gap: 20px;
+            padding: 5vh 3.5vw;
+
+            .about-desc-tittle {
+                letter-spacing: 3.5px;
+                font-weight: $font-weight3;
+                font-size: 1.3em;
+                color: $color-pri-black;
+            }
+
+            .about-desc-par {
+                @extend %typography-par;
+                font-size: $font-size;
+                font-weight: $font-weight3;
+                color: $color-pri-dark-gray;
+                line-height: 1.25;
+            }
+        }
+    }
+}
