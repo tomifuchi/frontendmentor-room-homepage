@@ -165,6 +165,30 @@ body {
         font-size: 2.3em;
     }
 
+    /* The fucking hamburger */
+    nav {
+        position: relative;
+
+        #mb-button {
+            position: absolute;
+            height: 22px;
+            width: 32px;
+            top: 0.5em;
+            left: 1.5em;
+            display: none;
+
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+
+        .mb-button-bar {
+            height: 3px;
+            width: 100%;
+            background-color: $color-pri-white;
+        }
+    }
+
     /*--------------------------------*/
 
     /* Hero description section */
@@ -266,20 +290,149 @@ main {
 
 /* Mobile area */
 @media (max-width: 1000px) {
+
+    .active-overlay{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+    }
+
     /* head area */
     header {
         .hero {
-            @include flex($direction: column);
+            .hero-img {
+                flex: auto;
+            }
+        
+            .hero-desc{
+                flex: auto;
+            }
+        }
+    }
+
+    header {
+        .hero {
+           @include flex($direction: column);
 
             .hero-img {
-                @include flex_item_reset();
                 background-size: cover;
                 height: 60vh;
             }
 
+            //At 700px the navigation will change into mobile layout mode
+            @media (max-width: 700px){
+                .hero-img {
+                    //This gives nav lie against the header 
+                    padding: 35px 0;
+                }
+
+                nav {
+                    @include flex($justify: center);
+
+                    #mb-button {
+                        display: flex;
+                    }
+                }
+
+                #mb-overlay {
+                    position: fixed;
+                    top: 0;
+                    right: 0;
+                    left: 0;
+                    bottom: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: $color-pri-black;
+                    opacity: 0;
+                    z-index: -1;
+                    cursor: pointer;
+                }
+
+                #mb-overlay.active {
+                    opacity: 0.8;
+                    z-index: 1;
+                }
+               
+                nav ul {
+                    @include flex($justify: center, $align: center);
+
+                    
+                    position: absolute;
+                    width: 100%;
+                    height: 400%;
+                    top: -3.3vh; 
+                
+                    transition: 0.3s;
+                    transform: translateY(-110%);
+
+                    z-index: 2;
+
+                    cursor: pointer;
+
+                    background-color: $color-pri-white;
+
+                    a {
+                        color: $color-pri-very-dark-gray;
+                    }
+
+
+                    #expand-list-mb-button{
+                        position: absolute;
+                        height: 22px;
+                        width: 32px;
+                        display: flex;
+                        top: 7vh;
+                        left: 3.5vw;
+
+                        flex-direction: column;
+                        justify-content: space-between;
+                    }
+
+                    .expand-list-bar {
+                        height: 3px;
+                        width: 100%;
+                        background-color: white;
+                    }
+
+                    .expand-list-bar:nth-child(1){
+                        background-color: $color-pri-dark-gray;
+                        transform: translateY(300%) rotate(-45deg) ;
+                    }
+                    .expand-list-bar:nth-child(2){
+                        background-color: $color-pri-dark-gray;
+                        transform: scale(0);
+                    }
+                    .expand-list-bar:nth-child(3){
+                        background-color: $color-pri-dark-gray;
+                        transform: translateY(-300%) rotate(45deg);
+                    }
+                }
+
+                nav ul.active {
+                    transition: 0.3s;
+                    transform: translateY(-10%);
+                }
+
+                 @media (max-width: 350px) {
+                    nav ul {
+                      @include flex($direction: column, $justify: center, $align: center);
+                      height: 100vh;
+
+                      transform: translateY(-110%);
+                    }
+
+                    nav ul.active {
+                      transform: translateY(-5%);
+                    }
+                }
+
+            }
+
+
+
             .hero-desc {
                 @include flex_item_reset();
-                @include flex($direction: column);
+                @include flex($direction: column, $align: center);
                 position: relative;
 
                 .hero-desc-detail{
@@ -287,13 +440,17 @@ main {
                     width: 65%;
 
                     .hero-desc-tittle{
+                        text-align: center;
                         font-size: 1.5em;
                     }
 
                     .hero-desc-intro {
                         line-height: 1.5;
                     }
- 
+
+                    .hero-desc-shop-container {
+                        align-self: center;
+                    }
 
                 }
 
@@ -322,9 +479,8 @@ main {
                 .hero-img {
                     background-image: url('./images/mobile-image-hero-1.jpg');
                     height: 375px;
-                    border: 1px solid #000;
                 }
-           }
+          }
         }
     }
 

@@ -80,6 +80,7 @@ body main {
   /*** Hero image ****/
   /* navigation */
   /* The items */
+  /* The fucking hamburger */
   /*--------------------------------*/
   /* Hero description section */
 }
@@ -130,6 +131,25 @@ body main {
 }
 .hero nav .nav-logo {
   font-size: 2.3em;
+}
+.hero nav {
+  position: relative;
+}
+.hero nav #mb-button {
+  position: absolute;
+  height: 22px;
+  width: 32px;
+  top: 0.5em;
+  left: 1.5em;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.hero nav .mb-button-bar {
+  height: 3px;
+  width: 100%;
+  background-color: hsl(0deg, 0%, 100%);
 }
 .hero .hero-desc {
   flex: 1 1 40%;
@@ -226,7 +246,18 @@ main .about .about-desc .about-desc-par {
 
 /* Mobile area */
 @media (max-width: 1000px) {
+  .active-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+  }
   /* head area */
+  header .hero .hero-img {
+    flex: auto;
+  }
+  header .hero .hero-desc {
+    flex: auto;
+  }
   header .hero {
     display: flex;
     flex-direction: column;
@@ -235,17 +266,115 @@ main .about .about-desc .about-desc-par {
     align-items: normal;
   }
   header .hero .hero-img {
-    flex: 0 1 auto;
     background-size: cover;
     height: 60vh;
   }
+  /* main area */
+}
+@media (max-width: 1000px) and (max-width: 700px) {
+  header .hero .hero-img {
+    padding: 35px 0;
+  }
+  header .hero nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: normal;
+  }
+  header .hero nav #mb-button {
+    display: flex;
+  }
+  header .hero #mb-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: hsl(0deg, 0%, 0%);
+    opacity: 0;
+    z-index: -1;
+    cursor: pointer;
+  }
+  header .hero #mb-overlay.active {
+    opacity: 0.8;
+    z-index: 1;
+  }
+  header .hero nav ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 400%;
+    top: -3.3vh;
+    transition: 0.3s;
+    transform: translateY(-110%);
+    z-index: 2;
+    cursor: pointer;
+    background-color: hsl(0deg, 0%, 100%);
+  }
+  header .hero nav ul a {
+    color: hsl(0deg, 0%, 27%);
+  }
+  header .hero nav ul #expand-list-mb-button {
+    position: absolute;
+    height: 22px;
+    width: 32px;
+    display: flex;
+    top: 7vh;
+    left: 3.5vw;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  header .hero nav ul .expand-list-bar {
+    height: 3px;
+    width: 100%;
+    background-color: white;
+  }
+  header .hero nav ul .expand-list-bar:nth-child(1) {
+    background-color: hsl(0deg, 0%, 63%);
+    transform: translateY(300%) rotate(-45deg);
+  }
+  header .hero nav ul .expand-list-bar:nth-child(2) {
+    background-color: hsl(0deg, 0%, 63%);
+    transform: scale(0);
+  }
+  header .hero nav ul .expand-list-bar:nth-child(3) {
+    background-color: hsl(0deg, 0%, 63%);
+    transform: translateY(-300%) rotate(45deg);
+  }
+  header .hero nav ul.active {
+    transition: 0.3s;
+    transform: translateY(-10%);
+  }
+}
+@media (max-width: 1000px) and (max-width: 700px) and (max-width: 350px) {
+  header .hero nav ul {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transform: translateY(-110%);
+  }
+  header .hero nav ul.active {
+    transform: translateY(-5%);
+  }
+}
+@media (max-width: 1000px) {
   header .hero .hero-desc {
     flex: 0 1 auto;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: normal;
-    align-items: normal;
+    align-items: center;
     position: relative;
   }
   header .hero .hero-desc .hero-desc-detail {
@@ -253,10 +382,14 @@ main .about .about-desc .about-desc-par {
     width: 65%;
   }
   header .hero .hero-desc .hero-desc-detail .hero-desc-tittle {
+    text-align: center;
     font-size: 1.5em;
   }
   header .hero .hero-desc .hero-desc-detail .hero-desc-intro {
     line-height: 1.5;
+  }
+  header .hero .hero-desc .hero-desc-detail .hero-desc-shop-container {
+    align-self: center;
   }
   header .hero .hero-desc #picture-carousel-buttons {
     position: absolute;
@@ -267,7 +400,6 @@ main .about .about-desc .about-desc-par {
     padding: 20px;
     font-size: 1.1em;
   }
-  /* main area */
 }
 @media (max-width: 1000px) and (max-width: 700px) {
   header .hero .hero-desc .hero-desc-detail {
@@ -278,7 +410,6 @@ main .about .about-desc .about-desc-par {
   header .hero .hero-img {
     background-image: url("./images/mobile-image-hero-1.jpg");
     height: 375px;
-    border: 1px solid #000;
   }
 }
 @media (max-width: 1000px) {
