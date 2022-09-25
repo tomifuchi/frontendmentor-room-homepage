@@ -19,3 +19,26 @@ overlay.addEventListener('click', () => {
 expand_list_mb_button.addEventListener('click', () => {
     mb_button.dispatchEvent(new Event('click'));
 });
+
+const carousel_buttons = document.querySelectorAll('[data-carousel-button]');
+carousel_buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        const offset = button.dataset.carouselButton === "next" ? 1 : -1;
+        //Fix this with a container
+        //const slides = document.querySelector('[data-carousel]');
+        const slides = document.querySelectorAll('[data-carousel-slide]');
+        console.log(slides);
+
+
+        const activeSlide = [...slides].indexOf(document.querySelector('[data-active-img]'));
+        console.log(activeSlide);
+        //The [...<something>] turns this into an array
+        let newIndex = activeSlide + offset;
+
+        if(newIndex < 0) newIndex = slides.length - 1;
+        if(newIndex > slides.length - 1) newIndex = 0;
+
+        slides[newIndex].dataset.activeImg = true;
+        delete slides[activeSlide].dataset.activeImg;
+    });
+});

@@ -21,7 +21,7 @@
 <body>
   <header>
   <section class="hero">
-    <div class="hero-img">
+    <div class="hero-img" data-carousel>
         <nav>
           <div class="nav-logo"><a href="#">room</a></div>
           <div id="mb-overlay"></div>
@@ -42,6 +42,22 @@
               <li><a href="#">contact</a></li>
             </ul>
         </nav>
+        
+        <img class="slide" data-carousel-slide data-active-img srcset=
+        "./images/desktop-image-hero-1.jpg 1440w,
+        ./images/mobile-image-hero-1.jpg 375w" 
+        src="images/desktop-image-hero-1.jpg" alt="image-hero1"
+        >
+        <img class="slide" data-carousel-slide  srcset=
+        "./images/desktop-image-hero-2.jpg 1440w,
+        ./images/mobile-image-hero-2.jpg 375w" 
+        src="images/desktop-image-hero-2.jpg" alt="image-hero2"
+        >
+        <img class="slide" data-carousel-slide srcset=
+        "./images/desktop-image-hero-3.jpg 1440w,
+        ./images/mobile-image-hero-3.jpg 375w" 
+        src="images/desktop-image-hero-3.jpg" alt="image-hero2"
+        >
     </div>
     <div class="hero-desc">
         <div class="hero-desc-detail">
@@ -76,8 +92,8 @@
         Shop now
         -->
         <div id="picture-carousel-buttons">
-          <a href="#"><</a>
-          <a href="#">></a>
+          <a href="#" data-carousel-button="prev"><</a>
+          <a href="#" data-carousel-button="next">></a>
         </div>
       </div>
     </section>

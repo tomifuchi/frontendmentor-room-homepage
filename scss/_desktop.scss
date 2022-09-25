@@ -23,14 +23,37 @@ body {
     /*** Hero image ****/
     .hero-img {
         flex: 1 1 60%;
-        background-image: url('./images/desktop-image-hero-1.jpg');
-        background-repeat: no-repeat;
-        background-size: cover;
-        padding: 45px;
-    }
+        position: relative;
+
+        img {
+            height: 100%;
+            width: 100%;
+        }
+ 
+        //The image carousel is relative
+        position: relative;
+        .slide {
+            position: absolute;
+            inset: 0;
+            z-index: -2;
+            opacity: 0;
+            transition: 200ms opacity ease-in-out;
+            transition-delay: 200ms;
+        }
+
+        .slide[data-active-img] {
+            z-index: -1;
+            transition-delay: 0ms;
+            opacity: 1;
+        }
+   }
 
     /* navigation */
     nav {
+        position: absolute;
+        top: 2.5em;
+        left: 3em;
+
         @include flex($align: center);
         gap: 40px;
     }
@@ -70,7 +93,7 @@ body {
 
     /* The fucking hamburger */
     nav {
-        position: relative;
+        position: absolute;
 
         #mb-button {
             position: absolute;
@@ -141,7 +164,7 @@ body {
             a {
                 border: none;
                 background-color: $color-pri-black;
-                padding: 25px;
+                padding: .85em;
 
                 color: $color-pri-dark-gray;
                 font-size: 1.5em;
@@ -149,6 +172,10 @@ body {
             
             a:hover{
                 background-color: $color-pri-very-dark-gray;
+            }
+
+            a:focus {
+                outline:1px solid $color-pri-very-dark-gray;
             }
         }
     }

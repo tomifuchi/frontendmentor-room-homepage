@@ -24,28 +24,13 @@
         .hero {
            @include flex($direction: column);
 
-            .hero-img {
-                background-size: cover;
-                height: 60vh;
-            }
-
-            //Small size screen
-            @media (max-width: 375px){
-                .hero-img {
-                    background-image: url('./images/mobile-image-hero-1.jpg');
-                    height: 375px;
-                }
-            }
-
             //At 700px the navigation will change into mobile layout mode
             @media (max-width: 700px) {
-              .hero-img {
-                  //This gives nav lie against the header 
-                  padding: 35px 0;
-              }
 
               nav {
                   @include flex($justify: center);
+                  left: 0;
+                  width: 100%;
 
                   #mb-button {
                       display: flex;
@@ -76,7 +61,7 @@
 
                   position: absolute;
                   width: 100%;
-                  height: 15vh;
+                  height: 10vh;
               
                   transition: 0.3s;
 
@@ -97,8 +82,9 @@
                       height: 22px;
                       width: 32px;
                       display: flex;
-                      top: 3em;
-                      left: 1.5em;
+                      //top: 4.3em;
+                      //left: 1.5em;
+                      top: 70%;
 
                       flex-direction: column;
                       justify-content: space-between;
@@ -126,7 +112,7 @@
 
               nav ul.active {
                   transition: 0.3s;
-                  transform: translateY(-29%);
+                  transform: translateY(-37%);
               }
 
                @media (max-width: 350px) {
@@ -138,7 +124,7 @@
                   }
 
                   nav ul.active {
-                    transform: translateY(-4.3%);
+                    transform: translateY(-5.5%);
                   }
               }
             }
@@ -169,12 +155,12 @@
 
                 #picture-carousel-buttons {
                     position: absolute;
-                    top: -3.9em;
+                    top: -3.6em;
                     right: 0;
 
                     a {
-                        padding: 20px;
-                        font-size: 1.1em;
+                        padding: 1.2em;
+                        font-size: 1em;
                     }
                 }
             }
@@ -196,6 +182,18 @@
             .img-light,
             .img-dark {
                 flex: 1;
+            }
+
+            .img-dark,
+            .img-light{
+                width: 100%;
+                height: auto;
+            }
+
+            .img-dark,
+            .img-light{
+                height: auto;
+                max-width: 625px;
             }
 
             .about-desc{
