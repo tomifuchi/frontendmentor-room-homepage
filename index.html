@@ -21,7 +21,7 @@
 <body>
   <header>
   <section class="hero">
-    <div class="hero-img" data-carousel>
+    <div class="hero-img">
         <nav>
           <div class="nav-logo"><a href="#">room</a></div>
           <div id="mb-overlay"></div>
@@ -43,21 +43,36 @@
             </ul>
         </nav>
         
-        <img class="slide" data-carousel-slide data-active-img srcset=
-        "./images/desktop-image-hero-1.jpg 1440w,
-        ./images/mobile-image-hero-1.jpg 375w" 
-        src="images/desktop-image-hero-1.jpg" alt="image-hero1"
-        >
-        <img class="slide" data-carousel-slide  srcset=
-        "./images/desktop-image-hero-2.jpg 1440w,
-        ./images/mobile-image-hero-2.jpg 375w" 
-        src="images/desktop-image-hero-2.jpg" alt="image-hero2"
-        >
-        <img class="slide" data-carousel-slide srcset=
-        "./images/desktop-image-hero-3.jpg 1440w,
-        ./images/mobile-image-hero-3.jpg 375w" 
-        src="images/desktop-image-hero-3.jpg" alt="image-hero2"
-        >
+        <ul data-carousel>
+          <!--This is a hack since I can't set the height
+            of the images, I take one of them, set the opacity
+            as zero as height for the carousel since setting
+            all of them slides on top of each other will affect
+            or give the ul or even the .hero-img any height, lead to
+            the problem they're not disaplying anything since it's position parent
+            height is essentially zero.
+          -->
+          <li><img data-carousel-height-holder srcset=
+          "./images/desktop-image-hero-1.jpg 1440w,
+          ./images/mobile-image-hero-1.jpg 375w" 
+          src="images/desktop-image-hero-1.jpg" alt="image-hero1"
+          ></li>
+          <li><img class="slide" data-carousel-slide data-active-img srcset=
+          "./images/desktop-image-hero-1.jpg 1440w,
+          ./images/mobile-image-hero-1.jpg 375w" 
+          src="images/desktop-image-hero-1.jpg" alt="image-hero1"
+          ></li>
+          <li><img class="slide" data-carousel-slide  srcset=
+          "./images/desktop-image-hero-2.jpg 1440w,
+          ./images/mobile-image-hero-2.jpg 375w" 
+          src="images/desktop-image-hero-2.jpg" alt="image-hero2"
+          ></li>
+          <li><img class="slide" data-carousel-slide srcset=
+          "./images/desktop-image-hero-3.jpg 1440w,
+          ./images/mobile-image-hero-3.jpg 375w" 
+          src="images/desktop-image-hero-3.jpg" alt="image-hero2"
+          ></li>
+          </ul>
     </div>
     <div class="hero-desc">
         <div class="hero-desc-detail">

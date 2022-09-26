@@ -1,16 +1,12 @@
 /* Body area */
 body {
-    @include flex($direction: column); //To header and main
     @extend %content-wraper;
-    min-height: 100vh;
 
     header {
-        flex: 2;
         @include flex($direction: column);
     }
 
     main {
-        flex: 1;
     }
 }
 
@@ -18,19 +14,23 @@ body {
 /** Hero section **/
 .hero {
     flex: 1;
-    @include flex();
+    @include grid($column: 60% 1fr);
 
     /*** Hero image ****/
     .hero-img {
-        flex: 1 1 60%;
-        position: relative;
 
         img {
             height: 100%;
             width: 100%;
         }
+
+        ul[data-carousel]{
+            img[data-carousel-height-holder]{
+                opacity: 0;
+                z-index: -2;
+            }
+        }
  
-        //The image carousel is relative
         position: relative;
         .slide {
             position: absolute;
@@ -51,6 +51,7 @@ body {
     /* navigation */
     nav {
         position: absolute;
+        z-index: 1;
         top: 2.5em;
         left: 3em;
 
@@ -119,7 +120,6 @@ body {
 
     /* Hero description section */
     .hero-desc {
-        flex: 1 1 40%;
         @include flex($direction: column, $justify: space-between);
 
         .hero-desc-detail {

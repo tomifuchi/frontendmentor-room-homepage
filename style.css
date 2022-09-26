@@ -48,35 +48,20 @@ main .about .about-desc .about-desc-par {
 }
 
 /* Body area */
-body {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: normal;
-  align-items: normal;
-  min-height: 100vh;
-}
 body header {
-  flex: 2;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: normal;
   align-items: normal;
 }
-body main {
-  flex: 1;
-}
-
 /* Header area */
 /** Hero section **/
 .hero {
   flex: 1;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: normal;
-  align-items: normal;
+  display: grid;
+  grid-template-columns: 60% 1fr;
+  grid-template-rows: none;
   /*** Hero image ****/
   /* navigation */
   /* The items */
@@ -85,13 +70,15 @@ body main {
   /* Hero description section */
 }
 .hero .hero-img {
-  flex: 1 1 60%;
-  position: relative;
   position: relative;
 }
 .hero .hero-img img {
   height: 100%;
   width: 100%;
+}
+.hero .hero-img ul[data-carousel] img[data-carousel-height-holder] {
+  opacity: 0;
+  z-index: -2;
 }
 .hero .hero-img .slide {
   position: absolute;
@@ -108,6 +95,7 @@ body main {
 }
 .hero nav {
   position: absolute;
+  z-index: 1;
   top: 2.5em;
   left: 3em;
   display: flex;
@@ -170,7 +158,6 @@ body main {
   background-color: hsl(0deg, 0%, 100%);
 }
 .hero .hero-desc {
-  flex: 1 1 40%;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -301,22 +288,14 @@ main .about .about-desc .about-desc-par {
   header .hero nav #mb-button {
     display: flex;
   }
-  header .hero #mb-overlay {
+  header .hero #mb-overlay.active {
     position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
     background-color: hsl(0deg, 0%, 0%);
-    opacity: 0;
-    z-index: -1;
     cursor: pointer;
-  }
-  header .hero #mb-overlay.active {
     opacity: 0.8;
-    z-index: 1;
   }
   header .hero nav ul {
     display: flex;
@@ -326,10 +305,9 @@ main .about .about-desc .about-desc-par {
     align-items: center;
     position: absolute;
     width: 100%;
-    height: 10vh;
+    height: 15vh;
     transition: 0.3s;
-    z-index: 2;
-    transform: translateY(-140%);
+    transform: translateY(-150%);
     cursor: pointer;
     background-color: hsl(0deg, 0%, 100%);
   }
@@ -341,7 +319,8 @@ main .about .about-desc .about-desc-par {
     height: 22px;
     width: 32px;
     display: flex;
-    top: 70%;
+    top: 3.6em;
+    left: 1.5em;
     flex-direction: column;
     justify-content: space-between;
   }
@@ -364,7 +343,7 @@ main .about .about-desc .about-desc-par {
   }
   header .hero nav ul.active {
     transition: 0.3s;
-    transform: translateY(-37%);
+    transform: translateY(-44%);
   }
 }
 @media (max-width: 1000px) and (max-width: 700px) and (max-width: 350px) {
@@ -378,7 +357,7 @@ main .about .about-desc .about-desc-par {
     transform: translateY(-110%);
   }
   header .hero nav ul.active {
-    transform: translateY(-5.5%);
+    transform: translateY(-4.4%);
   }
 }
 @media (max-width: 1000px) {

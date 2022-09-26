@@ -37,23 +37,14 @@
                   }
               }
 
-              #mb-overlay {
+              #mb-overlay.active {
                   position: fixed;
-                  top: 0;
-                  right: 0;
-                  left: 0;
-                  bottom: 0;
+                  inset: 0;
                   width: 100%;
                   height: 100%;
                   background-color: $color-pri-black;
-                  opacity: 0;
-                  z-index: -1;
                   cursor: pointer;
-              }
-
-              #mb-overlay.active {
                   opacity: 0.8;
-                  z-index: 1;
               }
               
               nav ul {
@@ -61,12 +52,10 @@
 
                   position: absolute;
                   width: 100%;
-                  height: 10vh;
-              
-                  transition: 0.3s;
+                  height: 15vh;
 
-                  z-index: 2;
-                  transform: translateY(-140%);
+                  transition: 0.3s;
+                  transform: translateY(-150%);
 
                   cursor: pointer;
 
@@ -82,9 +71,8 @@
                       height: 22px;
                       width: 32px;
                       display: flex;
-                      //top: 4.3em;
-                      //left: 1.5em;
-                      top: 70%;
+                      top: 3.6em;
+                      left: 1.5em;
 
                       flex-direction: column;
                       justify-content: space-between;
@@ -112,7 +100,7 @@
 
               nav ul.active {
                   transition: 0.3s;
-                  transform: translateY(-37%);
+                  transform: translateY(-44%);
               }
 
                @media (max-width: 350px) {
@@ -124,7 +112,7 @@
                   }
 
                   nav ul.active {
-                    transform: translateY(-5.5%);
+                    transform: translateY(-4.4%);
                   }
               }
             }
