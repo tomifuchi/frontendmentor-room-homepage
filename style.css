@@ -72,32 +72,34 @@ body header {
 .hero .hero-img {
   position: relative;
 }
-.hero .hero-img img {
-  height: 100%;
+.hero .hero-img ul[data-carousel] {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
   width: 100%;
+  height: 100%;
 }
-.hero .hero-img ul[data-carousel] img[data-carousel-height-holder] {
-  opacity: 0;
-  z-index: -2;
-}
-.hero .hero-img .slide {
-  position: absolute;
-  inset: 0;
+.hero .hero-img ul[data-carousel] li {
+  grid-row: 1/2;
+  grid-column: 1/2;
   z-index: -2;
   opacity: 0;
   transition: 200ms opacity ease-in-out;
   transition-delay: 200ms;
 }
-.hero .hero-img .slide[data-active-img] {
+.hero .hero-img ul[data-carousel] li[data-active-img] {
   z-index: -1;
   transition-delay: 0ms;
   opacity: 1;
 }
+.hero .hero-img img {
+  width: 100%;
+  height: 100%;
+}
 .hero nav {
   position: absolute;
-  z-index: 1;
-  top: 2.5em;
-  left: 3em;
+  top: 8%;
+  left: 6%;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -168,15 +170,39 @@ body header {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  justify-content: center;
+  justify-content: normal;
   align-items: normal;
   gap: 25px;
   padding: 6vw;
   font-weight: 700;
 }
+.hero .hero-desc .hero-desc-detail ul[data-carousel-detail] {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+.hero .hero-desc .hero-desc-detail ul[data-carousel-detail] li {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: normal;
+  align-items: normal;
+  gap: 25px;
+  grid-row: 1/2;
+  grid-column: 1/2;
+  opacity: 0;
+  z-index: -1;
+  transition: 25ms opacity ease-in-out;
+  transition-delay: 25ms;
+}
+.hero .hero-desc .hero-desc-detail ul[data-carousel-detail] li[data-active-detail] {
+  transition-delay: 0ms;
+  opacity: 1;
+  z-index: 0;
+}
 .hero .hero-desc .hero-desc-detail .hero-desc-tittle {
   color: hsl(0deg, 0%, 0%);
-  font-size: 2.8vw;
+  font-size: 2.5em;
 }
 .hero .hero-desc .hero-desc-detail .hero-desc-intro {
   color: hsl(0deg, 0%, 63%);
@@ -283,6 +309,7 @@ main .about .about-desc .about-desc-par {
     justify-content: center;
     align-items: normal;
     left: 0;
+    right: 0;
     width: 100%;
   }
   header .hero nav #mb-button {
@@ -295,6 +322,7 @@ main .about .about-desc .about-desc-par {
     height: 100%;
     background-color: hsl(0deg, 0%, 0%);
     cursor: pointer;
+    z-index: 1;
     opacity: 0.8;
   }
   header .hero nav ul {
@@ -303,11 +331,12 @@ main .about .about-desc .about-desc-par {
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
+    z-index: 2;
     position: absolute;
     width: 100%;
     height: 15vh;
     transition: 0.3s;
-    transform: translateY(-150%);
+    transform: translateY(-120%);
     cursor: pointer;
     background-color: hsl(0deg, 0%, 100%);
   }
@@ -319,8 +348,8 @@ main .about .about-desc .about-desc-par {
     height: 22px;
     width: 32px;
     display: flex;
-    top: 3.6em;
-    left: 1.5em;
+    top: 40%;
+    left: 5%;
     flex-direction: column;
     justify-content: space-between;
   }
@@ -343,7 +372,7 @@ main .about .about-desc .about-desc-par {
   }
   header .hero nav ul.active {
     transition: 0.3s;
-    transform: translateY(-44%);
+    transform: translateY(-18%);
   }
 }
 @media (max-width: 1000px) and (max-width: 700px) and (max-width: 350px) {
@@ -357,7 +386,7 @@ main .about .about-desc .about-desc-par {
     transform: translateY(-110%);
   }
   header .hero nav ul.active {
-    transform: translateY(-4.4%);
+    transform: translateY(-3.4%);
   }
 }
 @media (max-width: 1000px) {

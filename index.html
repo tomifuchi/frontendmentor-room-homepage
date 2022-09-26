@@ -44,30 +44,38 @@
         </nav>
         
         <ul data-carousel>
-          <!--This is a hack since I can't set the height
+          <!--
+            Past commits use position image carousel, souce
+            is from this guy:
+            https://www.youtube.com/watch?v=9HcxHDS2w1s&t=1s
+
+            This is a hack since I can't set the height
             of the images, I take one of them, set the opacity
             as zero as height for the carousel since setting
             all of them slides on top of each other will affect
             or give the ul or even the .hero-img any height, lead to
             the problem they're not disaplying anything since it's position parent
             height is essentially zero.
+
+            In this commit or version, use grid-carousel method. Since
+            grid items can overlay each other using grid-column
+            or grid-row then can be control the order using z-index
+            This works, quite nicely since this will keep the height
+            and the width of the item when they all stacks onto each
+            other. 
+            This method was developed by me.
           -->
-          <li><img data-carousel-height-holder srcset=
+         <li data-active-img data-carousel-slide><img srcset=
           "./images/desktop-image-hero-1.jpg 1440w,
           ./images/mobile-image-hero-1.jpg 375w" 
           src="images/desktop-image-hero-1.jpg" alt="image-hero1"
           ></li>
-          <li><img class="slide" data-carousel-slide data-active-img srcset=
-          "./images/desktop-image-hero-1.jpg 1440w,
-          ./images/mobile-image-hero-1.jpg 375w" 
-          src="images/desktop-image-hero-1.jpg" alt="image-hero1"
-          ></li>
-          <li><img class="slide" data-carousel-slide  srcset=
+          <li data-carousel-slide><img class="slide" srcset=
           "./images/desktop-image-hero-2.jpg 1440w,
           ./images/mobile-image-hero-2.jpg 375w" 
           src="images/desktop-image-hero-2.jpg" alt="image-hero2"
           ></li>
-          <li><img class="slide" data-carousel-slide srcset=
+          <li data-carousel-slide><img class="slide" srcset=
           "./images/desktop-image-hero-3.jpg 1440w,
           ./images/mobile-image-hero-3.jpg 375w" 
           src="images/desktop-image-hero-3.jpg" alt="image-hero2"
@@ -76,34 +84,44 @@
     </div>
     <div class="hero-desc">
         <div class="hero-desc-detail">
-          <h1 class="hero-desc-tittle">
-          Discover innovative ways to decorate
-          </h1>
-          <p class="hero-desc-intro">
-          We provide unmatched quality, comfort, and style for property owners across the country. 
-          Our experts combine form and function in bringing your vision to life. Create a room in your 
-          own style with our collection and make your property a reflection of you and what you love.
-          </p>
+          <ul data-carousel-detail>
+            <li data-carousel-detail-item data-active-detail>
+              <h1 class="hero-desc-tittle">
+              Discover innovative ways to decorate
+              </h1>
+              <p class="hero-desc-intro">
+              We provide unmatched quality, comfort, and style for property owners across the country. 
+              Our experts combine form and function in bringing your vision to life. Create a room in your 
+              own style with our collection and make your property a reflection of you and what you love.
+              </p>
+            </li>
+            <li data-carousel-detail-item >
+              <h1 class="hero-desc-tittle"> 
+                We are available all across the globe
+              </h1>
+              <p class="hero-desc-intro">
+              With stores all over the world, it's easy for you to find furniture for your home or place of business. 
+              Locally, we’re in most major cities throughout the country. Find the branch nearest you using our 
+              store locator. Any questions? Don't hesitate to contact us today.
+              </p>
+            </li>
+            <li data-carousel-detail-item>
+              <h1 class="hero-desc-tittle">
+              Manufactured with the best materials
+              </h1>
+              <p class="hero-desc-intro">
+              Our modern furniture store provide a high level of quality. Our company has invested in advanced technology 
+              to ensure that every product is made as perfect and as consistent as possible. With three decades of 
+              experience in this industry, we understand what customers want for their home and office.
+              </p>
+            </li>
+          </ul>
           <div class="hero-desc-shop-container">
             <a class="hero-desc-shop" href="#">SHOP NOW
             <img src="./images/icon-arrow.svg"></a>
           </div>
         </div>
         <!--
-        We are available all across the globe
-
-        With stores all over the world, it's easy for you to find furniture for your home or place of business. 
-        Locally, we’re in most major cities throughout the country. Find the branch nearest you using our 
-        store locator. Any questions? Don't hesitate to contact us today.
-
-        Shop now
-
-        Manufactured with the best materials
-
-        Our modern furniture store provide a high level of quality. Our company has invested in advanced technology 
-        to ensure that every product is made as perfect and as consistent as possible. With three decades of 
-        experience in this industry, we understand what customers want for their home and office.
-
         Shop now
         -->
         <div id="picture-carousel-buttons">
